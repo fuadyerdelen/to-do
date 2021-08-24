@@ -51,32 +51,6 @@ function getHome() {
 
 document.getElementById('main').appendChild(getHome());
 
-function register(username, password) {
-
-    let getName = document.getElementById('name').value;
-    let getEmail = document.getElementById('email').value;
-    let getPassword = document.getElementById('password').value;
-
-    email = getEmail;
-    username = getName;
-    password = getPassword;
-
-    let newUser = {
-
-        email: email,
-        username: username,
-        password: password,
-
-    }
-
-    localStorage.setItem(email, JSON.stringify(newUser));
-};
-
-function logout() {
-    document.getElementById('user_page').classList.add('d-none');
-    document.getElementById('home').classList.remove('d-none');
-}
-
 function getRegister() {
 
     let register_content = document.createElement('div');
@@ -160,6 +134,33 @@ function getRegister() {
     document.getElementById('content').appendChild(register_content);
 
 }
+
+function register(username, password) {
+
+    let getName = document.getElementById('name').value;
+    let getEmail = document.getElementById('email').value;
+    let getPassword = document.getElementById('password').value;
+
+
+
+    let newUser = {
+
+        email: getEmail,
+        username: getName,
+        password: getPassword,
+
+    }
+
+    localStorage.setItem(newUser.email, JSON.stringify(newUser));
+};
+
+function logout() {
+    document.getElementById('user_page').classList.add('d-none');
+    document.getElementById('home').classList.remove('d-none');
+    window.location.reload()
+}
+
+
 
 function getLogin() {
 
